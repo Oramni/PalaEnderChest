@@ -13,10 +13,8 @@ import net.minecraft.server.v1_7_R4.NBTTagCompound;
 import net.minecraft.server.v1_7_R4.NBTTagList;
 
 import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
-import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_7_R4.inventory.CraftInventoryCustom;
 import org.bukkit.craftbukkit.v1_7_R4.inventory.CraftItemStack;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
@@ -47,10 +45,10 @@ public class Fonction {
         return Base64Coder.encodeLines(outputStream.toByteArray());
     }
     
-    public static Inventory fromBase64(String data, Player p) {
+    public static Inventory fromBase64(String data) {
         ByteArrayInputStream inputStream = new ByteArrayInputStream(Base64Coder.decodeLines(data));
         NBTTagList itemList = (NBTTagList) readNbt(new DataInputStream(inputStream), 0);
-        Inventory inventory = Bukkit.createInventory(null, 9, "§cPalaEnderChest (§6"+p.getName()+"§c)");
+        Inventory inventory = new CraftInventoryCustom(null, itemList.size());
 
         for (int i = 0; i < itemList.size(); i++) {
             NBTTagCompound inputObject = (NBTTagCompound) itemList.get(i);
@@ -82,7 +80,7 @@ public class Fonction {
         }
     }
     
-    private static NBTBase readNbt(DataInput input, int level) {
+    public static NBTBase readNbt(DataInput input, int level) {
         if (READ_NBT == null) {
             try {
                 READ_NBT = NBTCompressedStreamTools.class.getDeclaredMethod("a", DataInput.class, int.class);

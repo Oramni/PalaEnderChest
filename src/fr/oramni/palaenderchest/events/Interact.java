@@ -11,6 +11,7 @@ import org.bukkit.inventory.Inventory;
 
 public class Interact implements Listener {
 
+	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onInteract(PlayerInteractEvent e){
 		
@@ -21,10 +22,12 @@ public class Interact implements Listener {
 	if (e.getClickedBlock().getType() == Material.ENDER_CHEST){
 		
 		Inventory inv = Bukkit.createInventory(null, 9, "§cPalaEnderChest (§6"+p.getName()+"§c)");
-		
+		for (Player ps : Bukkit.getOnlinePlayers()) {
+		ps.playNote(e.getClickedBlock().getLocation(), (byte) 1, (byte) 1);
+		}
 		p.updateInventory();
 		p.openInventory(inv);
-		
+		e.setCancelled(true);
 		
 	}
 	

@@ -4,6 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.inventory.Inventory;
 
 public class OpenInv implements Listener {
 
@@ -11,10 +12,9 @@ public class OpenInv implements Listener {
 	public void onOpen(InventoryOpenEvent e){
 		
 		Player p = (Player) e.getPlayer();
+		Inventory inv = e.getInventory();
 		
-		if(e.getInventory().getTitle().equals("§cPalaEnderChest (§6"+p.getName()+"§c)")){
-			p.sendMessage("Test");
-			
+		if(inv.getTitle().equals("§cPalaEnderChest (§6"+p.getName()+"§c)")){
 			
 		}else {
 			return;

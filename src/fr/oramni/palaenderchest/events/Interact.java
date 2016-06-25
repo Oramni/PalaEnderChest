@@ -15,6 +15,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 
+import fr.oramni.palaenderchest.Fonction;
+
 public class Interact implements Listener {
 
 	@SuppressWarnings("deprecation")
@@ -27,7 +29,7 @@ public class Interact implements Listener {
 		
 	if (e.getClickedBlock().getType() == Material.ENDER_CHEST){
 		
-		Inventory inv = Bukkit.createInventory(null, 9, "§cPalaEnderChest (§6"+p.getName()+"§c)");
+		Inventory inv = Fonction.fromBase64("CQAACgAAAAkCAAJpZAA9AgAGRGFtYWdlAAABAAVDb3VudAEAAAAAAAAAAAA=", p);
 		for(Player ps : Bukkit.getOnlinePlayers()){
 			ps.playSound(e.getClickedBlock().getLocation(), Sound.CHEST_OPEN, 1, 1);
 		Block block = e.getClickedBlock();

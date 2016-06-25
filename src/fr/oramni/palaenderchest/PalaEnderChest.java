@@ -7,7 +7,6 @@ public class PalaEnderChest extends JavaPlugin {
 	
 	@Override
 	public void onEnable(){
-	
 		EventManager.registerEvents(this);
 	}
 	

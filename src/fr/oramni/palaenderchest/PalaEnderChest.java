@@ -12,7 +12,9 @@ public class PalaEnderChest extends JavaPlugin {
 		
 		Logger logger = getLogger();
 		logger.info("§aOK!");
-		
+		EventManager.registerEvents(this);
 	}
+	
+	
 
 }

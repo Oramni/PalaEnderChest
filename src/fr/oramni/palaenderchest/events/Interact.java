@@ -7,6 +7,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+import fr.oramni.palaenderchest.inv.PalaInv;
+
 public class Interact implements Listener {
 
 	@EventHandler
@@ -19,6 +21,7 @@ public class Interact implements Listener {
 		    }
 		    if (e.getClickedBlock().getType() != Material.ENDER_CHEST) {
 		    	e.setCancelled(true);
+		    	PalaInv.openMenu(p);
 		      return;
 		  }
 	}

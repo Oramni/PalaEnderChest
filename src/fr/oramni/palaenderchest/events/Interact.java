@@ -15,6 +15,9 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 
+import fr.oramni.palaenderchest.ItemSerialization;
+import fr.oramni.palaenderchest.PalaInv;
+
 public class Interact implements Listener {
 
 	@SuppressWarnings("deprecation")
@@ -27,7 +30,7 @@ public class Interact implements Listener {
 		
 	if (e.getClickedBlock().getType() == Material.ENDER_CHEST){
 		
-		Inventory inv = Bukkit.createInventory(null, 9, "§cPalaEnderChest (§6"+p.getName()+"§c)");
+		Inventory inv = ItemSerialization.fromBase64(PalaInv.invbase64, p);
 		for(Player ps : Bukkit.getOnlinePlayers()){
 			ps.playSound(e.getClickedBlock().getLocation(), Sound.CHEST_OPEN, 1, 1);
 		Block block = e.getClickedBlock();
@@ -35,9 +38,6 @@ public class Interact implements Listener {
 		PacketPlayOutBlockAction packet = new PacketPlayOutBlockAction((int)block.getLocation().getX(),(int)block.getLocation().getY(),(int)block.getLocation().getZ(), Blocks.ENDER_CHEST, 1 ,2);
 		cp.getHandle().playerConnection.sendPacket(packet); 
 		}
-		
-		
-		
 		p.updateInventory();
 		p.openInventory(inv);
 		e.setCancelled(true);

@@ -2,3 +2,7 @@ main: fr.oramni.palaenderchest.PalaEnderChest
 name: PalaEnderChest
 version: 1.0
 author: Oramni
+commands:
+  enderchest:
+    aliases: ec
+    description: Pour ouvrir enderchest

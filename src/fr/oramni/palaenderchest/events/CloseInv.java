@@ -8,7 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 
-import fr.oramni.palaenderchest.Fonction;
+import fr.oramni.palaenderchest.ItemSerialization;
 
 public class CloseInv implements Listener {
 
@@ -21,7 +21,7 @@ public class CloseInv implements Listener {
 		
 		
 		if(inv.getTitle().equals("§cPalaEnderChest (§6"+p.getName()+"§c)")){
-			Bukkit.broadcastMessage(Fonction.toBase64(inv));
+			Bukkit.broadcastMessage(ItemSerialization.toBase64(inv));
 			for(Player ps : Bukkit.getOnlinePlayers()){
 				ps.playSound(p.getLocation(), Sound.CHEST_CLOSE, 1, 1);
 			}

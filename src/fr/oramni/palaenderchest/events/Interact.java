@@ -35,6 +35,9 @@ public class Interact implements Listener {
 		PacketPlayOutBlockAction packet = new PacketPlayOutBlockAction((int)block.getLocation().getX(),(int)block.getLocation().getY(),(int)block.getLocation().getZ(), Blocks.ENDER_CHEST, 1 ,2);
 		cp.getHandle().playerConnection.sendPacket(packet); 
 		}
+		
+		
+		
 		p.updateInventory();
 		p.openInventory(inv);
 		e.setCancelled(true);

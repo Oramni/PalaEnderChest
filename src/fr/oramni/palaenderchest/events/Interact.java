@@ -2,6 +2,7 @@ package fr.oramni.palaenderchest.events;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -22,8 +23,8 @@ public class Interact implements Listener {
 	if (e.getClickedBlock().getType() == Material.ENDER_CHEST){
 		
 		Inventory inv = Bukkit.createInventory(null, 9, "§cPalaEnderChest (§6"+p.getName()+"§c)");
-		for (Player ps : Bukkit.getOnlinePlayers()) {
-		ps.playNote(e.getClickedBlock().getLocation(), (byte) 1, (byte) 1);
+		for(Player ps : Bukkit.getOnlinePlayers()){
+			ps.playSound(e.getClickedBlock().getLocation(), Sound.CHEST_OPEN, 1, 1);
 		}
 		p.updateInventory();
 		p.openInventory(inv);

@@ -12,8 +12,8 @@ public class OpenInv implements Listener {
 		
 		Player p = (Player) e.getPlayer();
 		
-		if(e.getInventory().getTitle() == "§cPalaEnderChest (§6"+p.getName()+"§c)"){
-			
+		if(e.getInventory().getTitle().equals("§cPalaEnderChest (§6"+p.getName()+"§c)")){
+			p.sendMessage("Test");
 			
 			
 		}else {

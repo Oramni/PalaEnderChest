@@ -11,7 +11,7 @@ public class PalaEnderChest extends JavaPlugin {
 	public void onEnable(){
 		
 		Logger logger = getLogger();
-		logger.info("§aOK !");
+		logger.info("§aOK!");
 		
 	}
 

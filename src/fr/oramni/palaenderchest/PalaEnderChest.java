@@ -27,7 +27,6 @@ public class PalaEnderChest extends JavaPlugin {
 				return true;
 			}
 		}
-		
 		return false;
 	}
 

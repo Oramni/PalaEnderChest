@@ -4,5 +4,6 @@ version: 1.0
 author: Oramni
 commands:
   enderchest:
-    aliases: ec
+    description: Pour ouvrir enderchest
+  ec:
     description: Pour ouvrir enderchest

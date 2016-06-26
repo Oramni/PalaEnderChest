@@ -26,6 +26,17 @@ public class PalaEnderChest extends JavaPlugin {
 				return true;
 			}
 		}
+		
+		if(label.equalsIgnoreCase("ec")){
+			Player p = (Player) sender;
+			if(p.hasPermission("palaenderchest.cmd")){
+			PalaInv.openEnder(p);
+			return true;
+			} else {
+				p.sendMessage("§cVous n'avez pas les droits pour cette commande.");
+				return true;
+			}
+		}
 		return false;
 		
 		

@@ -16,4 +16,6 @@ public class PalaInv {
 	p.openInventory(inv);
 	
 	}
+	
+	
 }

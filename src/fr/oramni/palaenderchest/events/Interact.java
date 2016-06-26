@@ -16,7 +16,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 
 import fr.oramni.palaenderchest.ItemSerialization;
-import fr.oramni.palaenderchest.PalaInv;
+import fr.oramni.palaenderchest.PalaEnderChest;
 
 public class Interact implements Listener {
 
@@ -30,13 +30,13 @@ public class Interact implements Listener {
 		
 	if (e.getClickedBlock().getType() == Material.ENDER_CHEST){
 		
-		Inventory inv = ItemSerialization.fromBase64(PalaInv.invbase64, p);
+		Inventory inv = ItemSerialization.fromBase64(PalaEnderChest.api.getEnderchest(p.getName()), p);
 		for(Player ps : Bukkit.getOnlinePlayers()){
 			ps.playSound(e.getClickedBlock().getLocation(), Sound.CHEST_OPEN, 1, 1);
-		Block block = e.getClickedBlock();
-		CraftPlayer cp = (CraftPlayer) ps;
-		PacketPlayOutBlockAction packet = new PacketPlayOutBlockAction((int)block.getLocation().getX(),(int)block.getLocation().getY(),(int)block.getLocation().getZ(), Blocks.ENDER_CHEST, 1 ,2);
-		cp.getHandle().playerConnection.sendPacket(packet); 
+			Block block = e.getClickedBlock();
+			CraftPlayer cp = (CraftPlayer) ps;
+			PacketPlayOutBlockAction packet = new PacketPlayOutBlockAction((int)block.getLocation().getX(),(int)block.getLocation().getY(),(int)block.getLocation().getZ(), Blocks.ENDER_CHEST, 1 ,2);
+			cp.getHandle().playerConnection.sendPacket(packet); 
 		}
 		p.updateInventory();
 		p.openInventory(inv);

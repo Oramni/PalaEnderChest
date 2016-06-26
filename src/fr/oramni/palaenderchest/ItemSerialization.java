@@ -100,7 +100,7 @@ public class ItemSerialization {
     }
 
     private static Inventory parseInventory(NBTTagCompound root, NBTTagList itemList, String type, Player p) {
-        Inventory inventory = new CraftInventoryCustom(null, 9, "§cPalaEnderChest (§6"+p.getName()+"§c)");
+        Inventory inventory = new CraftInventoryCustom(null, 9, "§cMagmaEnderChest (§6"+p.getName()+"§c)");
 
         for (int i = 0; i < itemList.size(); i++) {
             NBTTagCompound inputObject = (NBTTagCompound) itemList.get(i);

@@ -8,9 +8,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class PalaEnderChest extends JavaPlugin {
 	
+	public static MySQL api;
+	
 	@Override
 	public void onEnable(){
-		
+		api = new MySQL("jdbc:mysql://", "localhost", "****", "root", "*******", "users");
+		api.connection();
 		EventManager.registerEvents(this);
 	}
 	

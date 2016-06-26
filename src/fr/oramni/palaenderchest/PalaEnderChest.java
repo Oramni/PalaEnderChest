@@ -14,7 +14,6 @@ public class PalaEnderChest extends JavaPlugin {
 		EventManager.registerEvents(this);
 	}
 	
-	@SuppressWarnings("unused")
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		
 		if(label.equalsIgnoreCase("enderchest")){
